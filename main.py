@@ -58,7 +58,7 @@ df_hr_total = pd.read_sql(
     "SELECT SUM(HR) AS total_HR FROM babe_ruth_stats;",
     conn3,
 )
-df_team_years = pd.read_sql(
+df_teams_years = pd.read_sql(
     "SELECT team, COUNT(year) AS number_years, COUNT(year) AS total_years_played FROM babe_ruth_stats GROUP BY team ORDER BY team ASC;",
     conn3,
 )
