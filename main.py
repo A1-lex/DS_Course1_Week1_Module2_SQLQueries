@@ -44,7 +44,7 @@ df_hungry_ages = pd.read_sql(
     conn2,
 )
 df_4_oldest = pd.read_sql(
-    "SELECT name, age, breed FROM (SELECT name, age, breed FROM dogs ORDER BY age DESC LIMIT 4) ORDER BY breed ASC;",
+    "SELECT name, age, breed FROM dogs ORDER BY age DESC LIMIT 4;",
     conn2,
 )
 
@@ -58,11 +58,11 @@ df_hr_total = pd.read_sql(
     "SELECT SUM(HR) AS total_HR FROM babe_ruth_stats;",
     conn3,
 )
-df_ruth_years = pd.read_sql(
-    "SELECT team, COUNT(year) AS number_years FROM babe_ruth_stats GROUP BY team;",
+df_team_years = pd.read_sql(
+    "SELECT team, COUNT(year) AS number_years, COUNT(year) AS total_years_played FROM babe_ruth_stats GROUP BY team ORDER BY team ASC;",
     conn3,
 )
 df_at_bats = pd.read_sql(
-    "SELECT team, AVG(at_bats) AS average_at_bats FROM babe_ruth_stats GROUP BY team HAVING AVG(at_bats) > 200;",
+    "SELECT team, AVG(at_bats) AS average_at_bats FROM babe_ruth_stats GROUP BY team HAVING AVG(at_bats) > 200 ORDER BY average_at_bats DESC;",
     conn3,
 )
