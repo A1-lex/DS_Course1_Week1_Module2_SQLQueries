@@ -59,10 +59,10 @@ df_hr_total = pd.read_sql(
     conn3,
 )
 df_teams_years = pd.read_sql(
-    "SELECT team, COUNT(year) AS number_years, COUNT(year) AS total_years_played FROM babe_ruth_stats GROUP BY team ORDER BY team ASC;",
+    "SELECT team, COUNT(year) AS number_years FROM babe_ruth_stats GROUP BY team ORDER BY team ASC;",
     conn3,
 )
 df_at_bats = pd.read_sql(
-    "SELECT team, AVG(at_bats) AS average_at_bats FROM babe_ruth_stats GROUP BY team HAVING AVG(at_bats) > 200 ORDER BY average_at_bats DESC;",
+    "SELECT team, AVG(at_bats) AS average_at_bats FROM babe_ruth_stats GROUP BY team HAVING AVG(at_bats) > 200;",
     conn3,
 )
